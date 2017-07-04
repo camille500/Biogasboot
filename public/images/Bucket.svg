@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 25">
+  <defs>
+      <style>.cls-1{fill:#c73e3c;}.cls-2{fill:#ebf1f1;}.cls-3{fill:#d9e1e4;}.cls-4{fill:#d45356;}.cls-5{fill:#3e8bca;}.cls-6{fill:#206b9e;}.cls-7{fill:#314555;}</style>
+  </defs>
+  <title>Bucket</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <rect class="cls-1" width="195" height="24.17" />
+    <polygon class="cls-2" points="11.33 24.17 34.67 204.17 158 204.17 183 24.17 11.33 24.17" />
+    <polygon class="cls-3" points="97.5 204.17 158.33 204.17 183.33 24.17 97.5 24.17 97.5 204.17" />
+    <rect class="cls-4" x="0.83" width="97.5" height="24.17" />
+    <circle class="cls-5" cx="97.17" cy="12.08" r="9.96" />
+    <path class="cls-6" d="M97.22,22.1a10,10,0,0,0,0-19.92Z" />
+    <polygon class="cls-7" points="96.22 16.64 99.22 10.14 182.97 94.14 178.47 99.39 96.22 16.64" />
+  </g>
+</svg>
