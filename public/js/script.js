@@ -34,16 +34,17 @@ animation_3.to('#Pointer', 1.5, {
   ease:Linear.easeNone,
   repeat:-1
 })
-.to('#Water', 1, {
-  fill: 'red',
-})
+.to('#Water', 10, {
+  fill: 'green',
+});
 
 /* MAIN APPLICATION
 ----------------------------------------- */
 const app = {
   init() {
     animation_2.pause();
-    data.get(`${config.api_url}/status/gas${config.api_key}`, 'gas')
+    animation_3.pause();
+    data.get(`${config.api_url}/status/gas${config.api_key}`, 'gas');
   }
 }
 
@@ -101,6 +102,9 @@ const animation = {
         break;
       case 'page_2':
         this.startNextAnimation(animation_2);
+        break;
+      case 'page_3':
+        this.startNextAnimation(animation_3);
         break;
       default:
         console.log('no animation')
