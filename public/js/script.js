@@ -1,39 +1,61 @@
-const bucket = document.getElementById('bucket_veg');
+/* ALL ELEMENTS
+----------------------------------------- */
+const elements = {
+  body: document.body,
+  bucket: document.getElementById('bucket_veg'),
+};
 
-document.getElementById("empty").addEventListener("click", startAnimation);
+/* ANIMATIONS
+----------------------------------------- */
+const timeLine = new TimelineLite();
+let drop = -140;
 
-function startAnimation() {
-  let delay = 2.23;
-  TweenLite.to(bucket, 2.25, {
-    rotation: 160,
-    ease:Power1.easeInOut
-  });
-  TweenMax.staggerTo('svg .waste', 2.25, {
-    transform: "translateY(-140px)",
-    ease: Power1.easeInOut,
-    delay: delay
-  }, 0.25);
-}
-
-const textEl = document.getElementById('introtext');
-TweenLite.to(textEl, 4, {
-  text: {
-    value: "De Biogasboot zet organisch afval om in biogas",
-    delimiter: " "
-  },
-  ease:Power1.easeIn
+timeLine.to(elements.bucket, 2.25, {
+  rotation: 160,
+  ease:Power1.easeInOut,
+})
+.staggerTo('svg .waste', 2, {
+  y: -140,
+  ease: Power1.easeInOut,
+  onComplete: function() {
+    drop = drop - 10;
+  }
+}, 0.25, "-=1.25")
+.to('.next', 2, {
+  autoAlpha: 1,
 });
 
-// TweenLite.to(text, 2, {text:"This is the new text", ease:Linear.easeNone});
-
-function start() {
-  console.log('Animation started');
+function startAnimation() {
+  timeLine.play();
 }
 
-function update() {
-  console.log('Animation updated');
+/* SCROLL FUNCTIONALITY
+----------------------------------------- */
+const smoothScroll = {
+  init(target) {
+    let actualOffset = smoothScroll.getOffset();
+    let targetPosition = document.getElementById(target).offsetTop;
+    smoothScroll.doScroll(actualOffset, targetPosition);
+  },
+  getOffset() {
+    let ActualyOffset = 0;
+    if (window.pageYOffset) {
+      ActualyOffset = window.pageYOffset;
+    } else {
+      ActualyOffset = document.body.scrollTop;
+    }
+    return ActualyOffset;
+  },
+  doScroll(actual, target) {
+    elements.body.classList.add('scrolling');
+    elements.body.style.transform = `translate(0, -${(target - actual)}px)`;
+  },
+  startNextAnimation(target) {
+
+  }
 }
 
-function complete() {
-  console.log('Animation completed')
-}
+smoothScroll.init('page_1');
+
+
+/* EVENT LISTENERS */
