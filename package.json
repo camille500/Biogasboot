@@ -1,0 +1,40 @@
+{
+  "name": "biogasboot-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard build for the biogasboot project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://camille500@github.com/camille500/Biogasboot.git"
+  },
+  "keywords": [
+    "biogasboot",
+    "dashboard",
+    "interactive",
+    "gsap"
+  ],
+  "author": "Camille Sébastien Niessen",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/camille500/Biogasboot/issues"
+  },
+  "homepage": "https://github.com/camille500/Biogasboot#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.6.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "http": "0.0.0",
+    "path": "^0.12.7",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
