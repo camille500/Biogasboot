@@ -98,6 +98,12 @@ a.next:hover {
   background-color: #344355;
 }
 
+.hover:hover {
+  cursor: pointer;
+  transform: scale(1.02) translateY(-2px);
+  transition: 1s;
+}
+
 #intro {
   background-color: #A0BBA7;
 }
@@ -114,4 +120,8 @@ a.next:hover {
 
 #page_3 {
   background-color: #cfded1;
+}
+
+#page_4 {
+  background-color: #efd154;
 }

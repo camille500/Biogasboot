@@ -3,7 +3,7 @@
 const elements = {
   body: document.body,
   bucket: document.getElementById('bucket_veg'),
-  m3used: document.getElementById('m3used'),
+  m3: document.getElementsByClassName('m3gu')
 };
 
 const config = {
@@ -15,6 +15,7 @@ const config = {
 ----------------------------------------- */
 const animation_2 = new TimelineLite();
 const animation_3 = new TimelineLite();
+const animation_4 = new TimelineLite({repeat: -1});
 
 animation_2.to(elements.bucket, 2.25, {
   rotation: 160,
@@ -37,6 +38,17 @@ animation_3.to('#Pointer', 1.5, {
 .to('#Water', 10, {
   fill: 'green',
 });
+
+animation_4.staggerFromTo('svg .bubble', 1, {
+  scale: 1,
+  y: 0,
+  ease: Power1.easeInOut,
+},
+{
+  scale: 1.35,
+  y: -1,
+  ease: Power1.easeInOut,
+}, 2)
 
 /* MAIN APPLICATION
 ----------------------------------------- */
@@ -67,7 +79,8 @@ const data = {
     if(type === 'gas') {
       let used = Math.floor(data.used);
       let generated = Math.floor(data.generated);
-      elements.m3used.textContent = used;
+      elements.m3[0].textContent = used;
+      elements.m3[1].textContent = generated;
     }
   }
 }
@@ -107,7 +120,6 @@ const animation = {
         this.startNextAnimation(animation_3);
         break;
       default:
-        console.log('no animation')
     }
   },
   startNextAnimation(animation) {
