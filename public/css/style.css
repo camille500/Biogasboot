@@ -63,9 +63,13 @@ svg.pomp {
 }
 
 svg.interactive {
+  display: block;
   max-width: 75vw;
   margin: 0 auto;
-  display: block;
+}
+
+svg.recycle {
+  margin-top: 25vh;
 }
 
 .infoText {
