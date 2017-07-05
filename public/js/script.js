@@ -7,7 +7,7 @@ const elements = {
   gas: document.getElementById('Gas'),
   arrows: document.getElementsByClassName('recycle1'),
   bucket: document.getElementById('bucket_veg'),
-  waste: document.getElementsByClassName('.waste'),
+  waste: document.getElementsByClassName('waste'),
   pointer: document.getElementById('Pointer'),
   water: document.getElementById('Water'),
   bubble: document.getElementsByClassName('.bubble'),
