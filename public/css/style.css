@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-  overflow: hidden;
+  /*overflow: hidden;*/
   font-family: 'Nexa', sans-serif;
 }
 
@@ -150,6 +150,19 @@ a.next:hover {
 
 #page_4 {
   background-color: #efd154;
+}
+
+#page_5 {
+  background-color: #29677a;
+  color: white;
+}
+
+#page_6 {
+  background-color: #eeeeee;
+}
+
+#page_7 {
+  background-color: #7b828c;
 }
 
 .visible {
