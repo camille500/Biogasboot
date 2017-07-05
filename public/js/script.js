@@ -37,8 +37,7 @@ animation_1.fromTo(elements.wastebin, 1, { autoAlpha: 0, },{ autoAlpha: 1, })
 .fromTo(elements.boat, 0.5, { scale: 1, },{ scale: 1.1, })
 .to(elements.boat, 0.5, { scale: 1, })
 .fromTo(elements.gas, 0.5, { scale: 1, },{ scale: 1.1, })
-.to(elements.gas, 0.5, { scale: 1, })
-.to('.recycle', 2, { rotation: -360 });
+.to(elements.gas, 0.5, { scale: 1, });
 
 animation_2.to(elements.bucket, 2.25, {
   rotation: 160,
