@@ -101,6 +101,10 @@ a.intro {
   opacity: 1;
 }
 
+a.js {
+  max-width: 12em;
+}
+
 a.next:hover {
   transition: .7s;
   cursor: pointer;

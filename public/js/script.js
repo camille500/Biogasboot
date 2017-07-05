@@ -13,7 +13,8 @@ const elements = {
   bubble: document.getElementsByClassName('bubble'),
   m3: document.getElementsByClassName('m3gu'),
   feed: document.getElementsByClassName('feed'),
-  next: document.getElementsByClassName('next')
+  next: document.getElementsByClassName('next'),
+  js_error: document.getElementsByClassName('js-error')[0]
 };
 
 /* CONFIGURATION VARIABLES
@@ -87,6 +88,7 @@ animation_4.staggerFromTo(elements.bubble, 1, {
 ----------------------------------------- */
 const app = {
   init() {
+    elements.js_error.style.display = 'none';
     /* PREVENT ANIMATIONS FROM STARTING AUTOMATICALLY
     ----------------------------------------- */
     animation_1.pause();
