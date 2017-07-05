@@ -14,7 +14,8 @@ const elements = {
   m3: document.getElementsByClassName('m3gu'),
   feed: document.getElementsByClassName('feed'),
   next: document.getElementsByClassName('next'),
-  js_error: document.getElementsByClassName('js-error')[0]
+  js_error: document.getElementsByClassName('js-error')[0],
+  loading: document.getElementById('loadScreen')
 };
 
 /* CONFIGURATION VARIABLES
@@ -45,7 +46,7 @@ animation_1.fromTo(elements.wastebin, 1, { autoAlpha: 0, },{ autoAlpha: 1, })
 .to(elements.boat, 0.5, { scale: 1, })
 .fromTo(elements.gas, 0.5, { scale: 1, },{ scale: 1.1, })
 .to(elements.gas, 0.5, { scale: 1, })
-.to(elements.next[1], 1, { autoAlpha: 1 });
+.to(elements.next[2], 1, { autoAlpha: 1 });
 
 /* SECOND BUCKET WITH WASTE ANIMATION
 ----------------------------------------- */
@@ -57,7 +58,7 @@ animation_2.to(elements.bucket, 2.25, {
   y: -140,
   ease: Power1.easeInOut,
 }, 0.25, "-=1.25")
-.to('.next', 2, {
+.to(elements.next[3], 1, {
   autoAlpha: 1,
 });
 
@@ -68,6 +69,9 @@ animation_3.to(elements.pointer, 1.5, {
   transformOrigin:"50% 90%",
   ease:Linear.easeNone,
   repeat:-1
+})
+.to(elements.next[4], 1, {
+  autoAlpha: 1,
 })
 .to(elements.water, 10, {
   fill: 'green',
