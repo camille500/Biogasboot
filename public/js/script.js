@@ -110,6 +110,7 @@
       ----------------------------------------- */
       data.get(`${config.api_url}/status/gas${config.api_key}`, 'gas');
       data.get(`${config.api_url}/status/feed${config.api_key}`, 'input');
+      eventListeners.init();
     }
   }
 
@@ -218,8 +219,23 @@
     }
   }
 
+  const eventListeners = {
+    init() {
+      elements.next.forEach(function(button) {
+        button.addEventListener("click", eventListeners.handle);
+      });
+    },
+    handle(event) {
+      let linkTo = event.target.getAttribute("data-link-to");
+      animation.init(linkTo);
+    }
+  }
+
   /* INITIALIZE THE APPLICATION
   ----------------------------------------- */
   app.init();
+
+
+
 
 // })();
