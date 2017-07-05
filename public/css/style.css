@@ -5,6 +5,7 @@ html, body {
 }
 
 body {
+  overflow: hidden;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -83,6 +84,7 @@ svg.recycle {
 }
 
 a.next {
+  opacity: 0;
   margin: 10vh auto 0 auto;
   display: block;
   max-width: 10em;
@@ -93,6 +95,10 @@ a.next {
   color: white;
   font-size: 1.2em;
   text-decoration: none;
+}
+
+a.intro {
+  opacity: 1;
 }
 
 a.next:hover {
