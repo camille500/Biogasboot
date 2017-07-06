@@ -76,7 +76,7 @@
     rotation: "360_cww",
     transformOrigin: "50% 90%",
     ease: Linear.easeNone,
-    repeat: -1
+    repeat: -1,
   })
   .to(elements.next[4], 1, {
     autoAlpha: 1
@@ -106,6 +106,7 @@
       animation_1.pause();
       animation_2.pause();
       animation_3.pause();
+      animation_4.play();
       /* GET API DATA
       ----------------------------------------- */
       data.get(`${config.api_url}/status/gas${config.api_key}`, 'gas');

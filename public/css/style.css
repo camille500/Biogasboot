@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-  /*overflow: hidden;*/
+  overflow: hidden;
   font-family: 'Nexa', sans-serif;
 }
 
@@ -111,6 +111,7 @@ a.next {
 
 a.intro {
   opacity: 1;
+  text-align: center;
 }
 
 a.js {
