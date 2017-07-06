@@ -110,7 +110,7 @@ svg.recycle {
   width: 12.5em;
 }
 
-span.buttons {
+.buttons {
   opacity: 0;
 }
 
@@ -186,4 +186,17 @@ a.intro:first-of-type {
 
 .visible {
   opacity: 1!important;
+}
+
+/* SMALLER SCREENS */
+@media screen and (max-width: 56.250em) {
+    section.animated {
+      display: none;
+    }
+    section.text {
+      width: 100%;
+    }
+    .buttons {
+      opacity: 1;
+    }
 }
