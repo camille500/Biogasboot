@@ -9,8 +9,8 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
-router.get('/alternative', function(req, res) {
-  res.render('alternative');
+router.get('/check', function(req, res) {
+  res.render('check');
 });
 
 /* EXPORT ROUTER
