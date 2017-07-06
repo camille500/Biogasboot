@@ -236,3 +236,32 @@ const feedCalculation = {
 
 module.exports = feedCalculation;
 ```
+
+### GreenSock
+For the animations in the dashboard I've used the GreenSock library. It comes in very handy when making a bit more complex animations. It makes use of timelines that makes it very scalable.
+
+**Example of one of the animations**
+
+```javascript
+animation_2.to(elements.bucket, 2.25, {
+    rotation: 160,
+    ease: Power1.easeInOut
+  }).staggerTo(elements.waste, 2, {
+    y: -140,
+    ease: Power1.easeInOut
+  }, 0.25, "-=1.25")
+  .to(elements.next[3], 1, {
+    autoAlpha: 1
+  });
+```
+
+## Dependecies
+
+* [x] [`Body-parser`](https://www.npmjs.com/package/body-parser) Middleware for body parsing
+* [x] [`Dotenv`](https://www.npmjs.com/package/dotenv) Load enviroment variables from .env files
+* [x] [`EJS`](https://www.npmjs.com/package/ejs) Templating library (Embedded JavaScript templates)
+* [x] [`Express`](https://www.npmjs.com/package/express) Web framework for NodeJS (routing)
+* [x] [`Express-session`](https://www.npmjs.com/package/express-session) Middleware for creating sessions
+* [x] [`Request`](https://www.npmjs.com/package/request) Client for HTTP requests
+* [x] [`Socket.io`](https://www.npmjs.com/package/socket.io) Enables websockets
+* [x] [`Compression`](https://www.npmjs.com/package/compression) Gzip compression
