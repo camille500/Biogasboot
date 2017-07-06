@@ -14,12 +14,17 @@ html, body {
 }
 
 body {
-  overflow: hidden;
+  width: 100vw;
+  /*overflow: hidden;*/
   font-family: 'Nexa', sans-serif;
 }
 
 body.scrolling {
   transition: transform 900ms ease;
+}
+
+.inline {
+  display: inline;
 }
 
 h1, h2, h3, h4, h5 {
@@ -32,7 +37,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 article {
@@ -46,7 +51,7 @@ article.flex {
 }
 
 article.intro {
-  padding-top: 25vh;
+  padding-top: 20vh;
   background-color: #A0BBA7;
   color: white;
 }
@@ -67,8 +72,16 @@ section {
   text-align: center;
 }
 
+section.text {
+  width: 45%;
+}
+
+section.animated {
+  min-width: 50%;
+}
+
 svg {
-  max-width: 30vw;
+  max-width: 65%;
 }
 
 svg.pomp {
@@ -82,48 +95,52 @@ svg.interactive {
 }
 
 svg.recycle {
-  margin-top: 25vh;
+  margin-top: 20vh;
 }
 
 .infoText {
-  padding: 1em;
-  margin: 20vh auto 12.5vh;
+  padding: .5em;
+  margin: 22.5vh auto 7.5vh;
   text-align: center;
   max-width: 10em;
 }
 
-.intro .infoText {
+.introText {
   margin: 0 auto;
+  width: 12.5em;
 }
 
-a.next {
+span.buttons {
   opacity: 0;
-  margin: 10vh auto 0 auto;
-  display: block;
+}
+
+a.navigate {
+  margin: 2em auto;
   max-width: 10em;
   transition: .7s;
-  padding: .5em;
+  padding: .85em;
   border-radius: .5em;
   background-color: #141B23;
   color: white;
   font-size: 1.2em;
   text-decoration: none;
-}
-
-a.intro {
-  opacity: 1;
   text-align: center;
 }
 
-a.js {
-  max-width: 12em;
-}
-
-a.next:hover {
+a.navigate:hover {
   transition: .7s;
   cursor: pointer;
   transform: scale(1.1);
   background-color: #344355;
+}
+
+a.intro {
+  display: block;
+  max-width: 25em;
+}
+
+a.intro:first-of-type {
+  margin-top: 4em;
 }
 
 .hover:hover {

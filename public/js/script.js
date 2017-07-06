@@ -14,8 +14,8 @@
     bubble: document.querySelectorAll('.bubble'),
     m3: document.querySelectorAll('.m3gu'),
     feed: document.querySelectorAll('.feed'),
-    next: document.querySelectorAll('.next'),
-    js_error: document.querySelector('.js-error'),
+    next: document.querySelectorAll('.navigate'),
+    buttons: document.querySelectorAll('.buttons'),
     co2: document.querySelector('.co2'),
     trees: document.querySelector('.trees'),
     carkm: document.querySelector('.carkm')
@@ -55,7 +55,7 @@
     scale: 1
   }, {scale: 1.1}).to(elements.boat, 0.5, {scale: 1}).fromTo(elements.gas, 0.5, {
     scale: 1
-  }, {scale: 1.1}).to(elements.gas, 0.5, {scale: 1}).to(elements.next[2], 1, {autoAlpha: 1});
+  }, {scale: 1.1}).to(elements.gas, 0.5, {scale: 1}).to(elements.buttons[0], 1, {autoAlpha: 1});
 
   /* SECOND BUCKET WITH WASTE ANIMATION
   ----------------------------------------- */
@@ -66,7 +66,7 @@
     y: -140,
     ease: Power1.easeInOut
   }, 0.25, "-=1.25")
-  .to(elements.next[3], 1, {
+  .to(elements.buttons[1], 1, {
     autoAlpha: 1
   });
 
@@ -80,7 +80,11 @@
   })
   .to(elements.next[4], 1, {
     autoAlpha: 1
-  }).to(elements.water, 10, {
+  })
+  .to(elements.buttons[2], 1, {
+    autoAlpha: 1
+  })
+  .to(elements.water, 10, {
     fill: 'green'
   });
 
@@ -98,9 +102,6 @@
   ----------------------------------------- */
   const app = {
     init() {
-      /* SHOW JS ERROR PAGE IF THERE IS NO JS
-      ----------------------------------------- */
-      elements.js_error.style.display = 'none';
       /* PREVENT ANIMATIONS FROM STARTING AUTOMATICALLY
       ----------------------------------------- */
       animation_1.pause();
