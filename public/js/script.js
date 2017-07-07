@@ -22,13 +22,6 @@
     carkm: document.querySelector('.carkm')
   };
 
-  /* CONFIGURATION VARIABLES
-  ----------------------------------------- */
-  const config = {
-    api_url: 'https://biogas-api.herokuapp.com/api',
-    api_key: '?api_key=CMD17'
-  }
-
   /* ANIMATIONS
   ----------------------------------------- */
   const animation_1 = new TimelineLite();
@@ -103,6 +96,7 @@
   ----------------------------------------- */
   const app = {
     init() {
+      this.enhance();
       /* PREVENT ANIMATIONS FROM STARTING AUTOMATICALLY
       ----------------------------------------- */
       animation_1.pause();
@@ -111,59 +105,15 @@
       animation_4.play();
       /* GET API DATA
       ----------------------------------------- */
-      data.get(`${config.api_url}/status/gas${config.api_key}`, 'gas');
-      data.get(`${config.api_url}/status/feed${config.api_key}`, 'input');
       eventListeners.init();
-    }
-  }
-
-  /* DATA OBJECT
-  ----------------------------------------- */
-  const data = {
-    /* XMLHTTPREQUEST TO API DATA
-    ----------------------------------------- */
-    get(getUrl, type) {
-      let response = '';
-      const request = new XMLHttpRequest();
-      request.open('GET', getUrl, true);
-      request.onload = () => {
-        if (request.status >= 200 && request.status < 400) {
-          response = JSON.parse(request.responseText);
-          data.insert(response, type);
-        } else {
-          console.log('error');
-        }
-      }
-      request.send()
     },
-    /* INSERT THE ACTUAL DATA INTO THE VIEW
-    ----------------------------------------- */
-    insert(data, type) {
-      if (type === 'gas') {
-        let used = Math.floor(data.used);
-        let generated = Math.floor(data.generated);
-        this.calculateCO2(used);
-        elements.m3[0].textContent = used;
-        elements.m3[1].textContent = generated;
-      } else if (type === 'input') {
-        let kg = Math.floor(data['kilograms']);
-        elements.feed[0].textContent = kg;
-        elements.feed[1].textContent = kg;
-      }
-    },
-    calculateCO2(gas) {
-      /* 2.2KG CO2 for each M3 GAS
-      ----------------------------------------- */
-      let co2 = Math.floor(gas * 2.2);
-      elements.co2.textContent = co2;
-      this.calculateTreeCompensation(co2);
-      this.calculateKmInCar(co2);
-    },
-    calculateTreeCompensation(co2) {
-      elements.trees.textContent = Math.floor(co2 / 20);
-    },
-    calculateKmInCar(co2) {
-      elements.carkm.textContent = Math.floor(co2 / 0.125);
+    enhance() {
+      elements.buttons.forEach(function(button) {
+        button.classList.add('invisible');
+      });
+      elements.navigate.forEach(function(link) {
+        link.setAttribute('href', '#');
+      });
     }
   }
 
