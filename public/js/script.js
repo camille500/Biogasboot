@@ -15,6 +15,7 @@
     m3: document.querySelectorAll('.m3gu'),
     feed: document.querySelectorAll('.feed'),
     next: document.querySelectorAll('.navigate'),
+    options: document.querySelectorAll('.options'),
     buttons: document.querySelectorAll('.buttons'),
     co2: document.querySelector('.co2'),
     trees: document.querySelector('.trees'),
@@ -226,10 +227,18 @@
       elements.next.forEach(function(button) {
         button.addEventListener("click", eventListeners.handle);
       });
+      elements.options.forEach(function(button) {
+        button.addEventListener("click", eventListeners.reset);
+      })
     },
     handle(event) {
       let linkTo = event.target.getAttribute("data-link-to");
       animation.init(linkTo);
+    },
+    reset() {
+      animation_1.restart(0).pause();
+      animation_2.restart(0).pause();
+      animation_3.restart(0).pause();
     }
   }
 
