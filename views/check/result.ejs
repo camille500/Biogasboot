@@ -1,0 +1,27 @@
+<%- include('../partials/head.ejs') %>
+
+<article class="check rst">
+  <section class="head">
+    <h1>Check jouw besparing!</h1>
+  </section>
+  <section class="result">
+    <h2><span id="shareReplace">Je hebt</span> in totaal <span class="amount"><%= chk_co2 %>kg</span> CO2 bespaard door te eten bij Café de Ceuvel</h2>
+  </section>
+  <section class="result">
+    <h2>Normaal zou een boom er <span class="amount"><%= chk_trees %> dagen</span> over doen om die CO2 weer uit de lucht te halen</h2>
+  </section>
+  <section class="result">
+    <h2>Dat is een besparing van ongeveer <span class="amount"><%= chk_carkm %> kilometer</span> autorijden!</h2>
+  </section>
+  <section class="social">
+    <a class="inline ashare" href="/#intro">Terug naar menu</a>
+    <a class="inline ashare" href="#" id="mailMe">Deel met vrienden</a>
+    <form class="shareForm" id="shareForm" method="post">
+      <label for="name">Voer je naam in</label>
+      <input name="name" required placeholder="Voer je naam hier in"/>
+      <input type="submit" value="Maak deellink"/>
+    </form>
+  </section>
+</article>
+
+<%- include('../partials/foot.ejs') %>

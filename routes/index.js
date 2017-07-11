@@ -4,9 +4,11 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 
-/* LOGIN ROUTE
+/* MAIN ROUTE
 ----------------------------------------- */
 router.get('/', getGas, getFeed, function(req, res, next) {
+  /* SET AL LOCAL VARIABLES
+  ----------------------------------------- */
   res.locals.gas = req.session.gas;
   res.locals.co2 = req.session.co2;
   res.locals.trees = req.session.trees;
@@ -15,23 +17,55 @@ router.get('/', getGas, getFeed, function(req, res, next) {
   res.render('index');
 });
 
+/* RENDER CHECK VIEW
+----------------------------------------- */
 router.get('/check', function(req, res, next) {
-  res.render('check');
+  res.render('check/index');
 });
 
+/* GET POST DATA AND DO CALCULATIONS
+----------------------------------------- */
+router.post('/check', function(req, res, next) {
+  req.session.persons = req.body.persons;
+  let totalCO2byGas = (0.5 * 2.2) * req.session.persons; /* Here I take 0.5 kg CO2 for average per meal (demo data) */
+  req.session.chk_trees = Math.floor(totalCO2byGas / 0.1369); /* 0.1369 is amount of CO2 per tree per day (365/50); */
+  req.session.chk_carkm = Math.floor(totalCO2byGas / 0.125);
+  req.session.chk_co2 = totalCO2byGas.toFixed(2);
+  res.redirect('/check/result')
+});
+
+router.get('/check/result', function(req, res, next) {
+  res.locals.chk_trees = req.session.chk_trees;
+  res.locals.chk_carkm = req.session.chk_carkm;
+  res.locals.chk_co2 = ((0.5 * 2.2) * req.session.persons).toFixed(2);
+  res.render('check/result')
+});
+
+router.post('/check/result', function(req, res, next) {
+  let name = req.body.name;
+});
+
+/* GET ALL GAS DATA
+----------------------------------------- */
 function getGas(req, res, next) {
   request(`${process.env.API_URL}/status/gas?api_key=${process.env.API_KEY}`, function (error, response, body) {
     req.session.gas = JSON.parse(body);
-    req.session.co2 = Math.floor(req.session.gas['generated'] * 2.2);
-    req.session.trees = Math.floor(req.session.co2 / 20);
-    req.session.carkm = Math.floor(req.session.co2 / 0.125);
+    /* ALL CALCULATIONS BASED ON SOURCES (SEE README)
+    ----------------------------------------- */
+    req.session.co2 = (req.session.gas['generated'] * 2.2).toFixed(2);
+    req.session.trees = (req.session.co2 / 20).toFixed(2);
+    req.session.carkm = (req.session.co2 / 0.125).toFixed(2);
     next();
   });
 };
 
+/* GET LATEST FEED INFORMATION (KG WASTE)
+----------------------------------------- */
 function getFeed(req, res, next) {
+  /* REQUEST DATA FROM THE API ENDPOINT
+  ----------------------------------------- */
   request(`${process.env.API_URL}/status/feed?api_key=${process.env.API_KEY}`, function (error, response, body) {
-    req.session.feed = Math.floor(JSON.parse(body).kilograms);
+    req.session.feed = ((JSON.parse(body).kilograms)).toFixed(2);
     next();
   });
 };
