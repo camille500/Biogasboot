@@ -31,14 +31,14 @@ router.post('/check', function(req, res, next) {
   req.session.chk_trees = Math.floor(totalCO2byGas / 0.1369); /* 0.1369 is amount of CO2 per tree per day (365/50); */
   req.session.chk_carkm = Math.floor(totalCO2byGas / 0.125);
   req.session.chk_co2 = totalCO2byGas.toFixed(2);
-  res.redirect('/check/result')
+  res.redirect('/check/result');
 });
 
 router.get('/check/result', function(req, res, next) {
   res.locals.chk_trees = req.session.chk_trees;
   res.locals.chk_carkm = req.session.chk_carkm;
   res.locals.chk_co2 = ((0.5 * 2.2) * req.session.persons).toFixed(2);
-  res.render('check/result')
+  res.render('check/result');
 });
 
 router.post('/check/result', function(req, res, next) {
