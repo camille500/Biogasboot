@@ -41,8 +41,44 @@ router.get('/check/result', function(req, res, next) {
   res.render('check/result');
 });
 
-router.post('/check/result', function(req, res, next) {
-  let name = req.body.name;
+router.post('/check/result', createID, function(req, res, next) {
+  const collection = db.collection('share');
+  const id = req.session.shareID;
+  let data = {
+    id: id,
+    name: req.body.name,
+    trees: req.session.chk_trees,
+    carkm: req.session.chk_carkm,
+    co2: ((0.5 * 2.2) * req.session.persons).toFixed(2)
+  };
+  collection.findOne({
+    id: id
+  }, function(err, sharePage) {
+    if (!sharePage) {
+    collection.save(data, (err, result) => {
+      if (err) return console.log(err);
+      res.redirect('/');
+    });
+    }
+  });
+});
+
+router.get('/share/:id', function(req, res, next) {
+  const collection = db.collection('share');
+  const id = req.params.id;
+  collection.findOne({
+    id: id
+  }, function(err, sharePage) {
+    if (sharePage) {
+      res.locals.name = sharePage.name;
+      res.locals.chk_co2 = sharePage.co2;
+      res.locals.chk_trees = sharePage.trees;
+      res.locals.chk_carkm = sharePage.carkm;
+      res.render('check/share');
+    } else {
+      console.log('error')
+    }
+  });
 });
 
 /* GET ALL GAS DATA
@@ -69,6 +105,17 @@ function getFeed(req, res, next) {
     next();
   });
 };
+
+function createID(req, res, next) {
+  const symbols = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ#0123456789';
+  const length = 10;
+  let id = 0;
+  for(let i = 0; i < length; i++) {
+    id += symbols.charAt(Math.floor(Math.random() * symbols.length));
+  }
+  req.session.shareID = id;
+  next();
+}
 
 /* EXPORT ROUTER
 ----------------------------------------- */

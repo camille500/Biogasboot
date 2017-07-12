@@ -285,6 +285,10 @@ div h2 {
   font-size: 1.2em;
 }
 
+.shareForm input[type='submit'] {
+  margin-bottom: 2em;
+}
+
 .result h2 {
   padding: 2em 5.5em;
 }

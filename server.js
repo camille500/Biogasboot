@@ -21,6 +21,17 @@ app.use(session({
   saveUninitialized: true
 }));
 
+/* MONGODB CONFIGURATION
+----------------------------------------- */
+const MongoClient = require("mongodb").MongoClient;
+const dbConfig = process.env.MONGODB_URL;
+
+MongoClient.connect(dbConfig, (err, database) => {
+  if (err)
+    return console.log(err)
+  db = database
+});
+
 /* SET PORT
 ----------------------------------------- */
 const port = process.env.PORT || 3000;
