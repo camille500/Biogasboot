@@ -21,7 +21,7 @@ body {
 }
 
 body.overflow {
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 body.scrolling {
@@ -175,6 +175,7 @@ a.intro:first-of-type {
   max-width: 5em;
   font-size: 1.75em;
   font-family: inherit;
+  border: none;
 }
 
 .check input[type='submit'], .check a {
@@ -260,8 +261,7 @@ div h2 {
 
 .check .social {
   background-color: #7B828C;
-  padding: 1.25em;
-  margin: 0;
+  padding: 1em;
 }
 
 .social a {
@@ -291,6 +291,8 @@ div h2 {
 
 .shareForm {
   opacity: 0;
+  position: absolute;
+  top: 0;
 }
 
 /* PAGES */
@@ -327,10 +329,19 @@ span.amount {
   color: #8f9af9
 }
 
+.co2_cloud {
+  margin-top: 13em;
+}
+
+.trees {
+  margin-top: 9em;
+}
+
 /* HELPERS */
 .formPosition {
   margin: 0;
   opacity: 1;
+  position: inherit;
 }
 
 .inline {

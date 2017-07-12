@@ -14,6 +14,9 @@
       waste: document.querySelectorAll('.waste'),
       pointer: document.querySelector('#Pointer'),
       water: document.querySelector('#Water'),
+      trees: document.querySelectorAll('.Tree'),
+      co2_clouds: document.querySelectorAll('.co2_clouds'),
+      earth: document.querySelector('#Earth'),
       bubble: document.querySelectorAll('.bubble'),
       next: document.querySelectorAll('.navigate'),
       options: document.querySelectorAll('.options'),
@@ -26,7 +29,8 @@
       const animation_1 = new TimelineLite();
       const animation_2 = new TimelineLite();
       const animation_3 = new TimelineLite();
-      const animation_4 = new TimelineLite();
+      const animation_5 = new TimelineLite();
+      const animation_6 = new TimelineLite();
 
       /* FIRST RECYCLE ANIMATION
       ----------------------------------------- */
@@ -81,15 +85,30 @@
         fill: 'green'
       });
 
-      /* INTERACTIVE BOAT ANIMATIONS
+      /* CO2 ANIMATIONS
       ----------------------------------------- */
-      animation_4.staggerFromTo(elements.bubble, 1, {
-        scale: 1,
+      animation_5.to(elements.co2_clouds, 7.5, {
+        autoAlpha: 0,
+        y: -20,
+        ease: Power1.easeInOut
+      }, 1)
+      .to(elements.buttons[4], 1, {
+        autoAlpha: 1
+      }, "-=6");
+
+      /* TREE ANIMATIONS
+      ----------------------------------------- */
+      animation_6.staggerFromTo(elements.trees, 1, {
+        autoAlpha: 0,
         ease: Power1.easeInOut
       }, {
-        scale: 1.35,
+        autoAlpha: 1,
         ease: Power1.easeInOut
-      }, 1);
+      }, .75)
+      .to(elements.buttons[4], 1, {
+        autoAlpha: 1
+      });
+
     /* MAIN APPLICATION
     ----------------------------------------- */
     const app = {
@@ -100,7 +119,9 @@
           animation_1.pause();
           animation_2.pause();
           animation_3.pause();
-          animation_4.play();
+          animation_5.pause();
+          animation_6.pause();
+
         /* GET API DATA
         ----------------------------------------- */
         eventListeners.init();
@@ -161,6 +182,12 @@
           case 'page_3':
             this.startNextAnimation(animation_3);
             break;
+          case 'page_5':
+            this.startNextAnimation(animation_5);
+            break;
+          case 'page_6':
+            this.startNextAnimation(animation_6);
+            break;
           default:
         }
       },
@@ -190,6 +217,7 @@
         animation_1.restart(0).pause();
         animation_2.restart(0).pause();
         animation_3.restart(0).pause();
+        animation_5.restart(0).pause();
       }
     }
 
