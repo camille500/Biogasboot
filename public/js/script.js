@@ -212,10 +212,6 @@
     const share = document.getElementById('mailMe');
     share.addEventListener("click", shareOptions);
 
-    function shareOptions() {
-      console.log('clicker');
-    }
-
   }
 
 })();
