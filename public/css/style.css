@@ -322,7 +322,8 @@ div h2 {
   background-color: #eeeeee;
 }
 #page_7 {
-  background-color: #7b828c;
+  background-color: #000000;
+  color: white;
 }
 
 span.amount {
@@ -335,6 +336,14 @@ span.amount {
 
 .trees {
   margin-top: 9em;
+}
+
+.food_used {
+  margin-top: 14vh;
+}
+
+.speedoMeter {
+  margin-top: 27.5vh;
 }
 
 /* HELPERS */

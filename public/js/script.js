@@ -16,7 +16,8 @@
       water: document.querySelector('#Water'),
       trees: document.querySelectorAll('.Tree'),
       co2_clouds: document.querySelectorAll('.co2_clouds'),
-      earth: document.querySelector('#Earth'),
+      speed_pointer: document.querySelector('#speed_pointer'),
+      food: document.querySelectorAll('.food'),
       bubble: document.querySelectorAll('.bubble'),
       next: document.querySelectorAll('.navigate'),
       options: document.querySelectorAll('.options'),
@@ -29,8 +30,10 @@
       const animation_1 = new TimelineLite();
       const animation_2 = new TimelineLite();
       const animation_3 = new TimelineLite();
+      const animation_4 = new TimelineLite();
       const animation_5 = new TimelineLite();
       const animation_6 = new TimelineLite();
+      const animation_7 = new TimelineLite();
 
       /* FIRST RECYCLE ANIMATION
       ----------------------------------------- */
@@ -85,6 +88,19 @@
         fill: 'green'
       });
 
+      /* FOOD ANIMATIONS
+      ----------------------------------------- */
+      animation_4.staggerFromTo(elements.food, 1, {
+        autoAlpha: 0,
+        ease: Power1.easeInOut
+      }, {
+        autoAlpha: 1,
+        ease: Power1.easeInOut
+      }, .6)
+      .to(elements.buttons[3], 1, {
+        autoAlpha: 1
+      });
+
       /* CO2 ANIMATIONS
       ----------------------------------------- */
       animation_5.to(elements.co2_clouds, 7.5, {
@@ -105,7 +121,18 @@
         autoAlpha: 1,
         ease: Power1.easeInOut
       }, .75)
-      .to(elements.buttons[4], 1, {
+      .to(elements.buttons[5], 1, {
+        autoAlpha: 1
+      });
+
+      /* CAR ANIMATION
+      ----------------------------------------- */
+      animation_7.to(elements.speed_pointer, 15, {
+        rotation: "180_cww",
+        transformOrigin: "85% 50%",
+        ease: Linear.easeNone,
+      })
+      .to(elements.buttons[5], 1, {
         autoAlpha: 1
       });
 
@@ -119,8 +146,10 @@
           animation_1.pause();
           animation_2.pause();
           animation_3.pause();
+          animation_4.pause();
           animation_5.pause();
           animation_6.pause();
+          animation_7.pause();
 
         /* GET API DATA
         ----------------------------------------- */
@@ -182,11 +211,17 @@
           case 'page_3':
             this.startNextAnimation(animation_3);
             break;
+          case 'page_4':
+            this.startNextAnimation(animation_4);
+            break;
           case 'page_5':
             this.startNextAnimation(animation_5);
             break;
           case 'page_6':
             this.startNextAnimation(animation_6);
+            break;
+          case 'page_7':
+            this.startNextAnimation(animation_7);
             break;
           default:
         }
