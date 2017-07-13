@@ -265,13 +265,13 @@ For testing purposes I've been to Café de Ceuvel multiple times. I've conducted
 
 I've been testing the application in the device lab too. Here are some images.
 
-![Device lab](/screenshots/dl1.jpg "Device lab")
+![Device lab](/screenshots/dl1.JPG "Device lab")
 
-![Device lab](/screenshots/dl2.jpg "Device lab")
+![Device lab](/screenshots/dl2.JPG "Device lab")
 
-![Device lab](/screenshots/dl3.jpg "Device lab")
+![Device lab](/screenshots/dl3.JPG "Device lab")
 
-![Device lab](/screenshots/dl4.jpg "Device lab")
+![Device lab](/screenshots/dl4.JPG "Device lab")
 
 ## Screenshots
 Here some screenshots from the application
