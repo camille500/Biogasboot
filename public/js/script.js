@@ -260,8 +260,8 @@
     socket.on('update', function(amount) {
       let elements = document.querySelectorAll('.amount');
       elements.forEach(function(element) {
-        let total = Number(element.textContent);
-        element.textContent = (total + amount).toFixed(2);
+        let total = Number(element.textContent).toFixed(2);
+        element.textContent = total + amount;
       })
     });
 
