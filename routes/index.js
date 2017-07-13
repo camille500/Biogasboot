@@ -87,13 +87,17 @@ module.exports = function(io) {
   ----------------------------------------- */
   function getGas(req, res, next) {
     request(`${process.env.API_URL}/status/gas?api_key=${process.env.API_KEY}`, function (error, response, body) {
-      req.session.gas = JSON.parse(body);
-      /* ALL CALCULATIONS BASED ON SOURCES (SEE README)
-      ----------------------------------------- */
-      req.session.co2 = (req.session.gas['generated'] * 2.2).toFixed(2);
-      req.session.trees = (req.session.co2 / 20).toFixed(2);
-      req.session.carkm = (req.session.co2 / 0.125).toFixed(2);
-      next();
+      if(error) {
+        res.redirect('/');
+      } else {
+        req.session.gas = JSON.parse(body);
+        /* ALL CALCULATIONS BASED ON SOURCES (SEE README)
+        ----------------------------------------- */
+        req.session.co2 = (req.session.gas['generated'] * 2.2).toFixed(2);
+        req.session.trees = (req.session.co2 / 20).toFixed(2);
+        req.session.carkm = (req.session.co2 / 0.125).toFixed(2);
+        next();
+      }
     });
   };
 
@@ -103,8 +107,12 @@ module.exports = function(io) {
     /* REQUEST DATA FROM THE API ENDPOINT
     ----------------------------------------- */
     request(`${process.env.API_URL}/status/feed?api_key=${process.env.API_KEY}`, function (error, response, body) {
-      req.session.feed = ((JSON.parse(body).kilograms)).toFixed(2);
-      next();
+      if(error) {
+        res.redirect('/');
+      } else {
+        req.session.feed = ((JSON.parse(body).kilograms)).toFixed(2);
+        next();
+      }
     });
   };
 
