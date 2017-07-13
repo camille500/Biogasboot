@@ -16,16 +16,15 @@ The second stakeholder is the Ceuvel itself. For them it's nice to give their cu
 ## How to use the dashboard
 The dashboard is really simple in usage. It's a 'click and watch' concept where users are taken trough a story. On each screen is a text with data collected from te biogasboot. Those texts are provided with a animation to give more clarity. There are screens with relative data as well, like the amount of Kilograms CO2 that are saved.
 
-At the end of the 'story' the user can play with an interactive view of the boat. By hovering over the parts inside, they can see exactly how much gas was created there for example. There is a view with live data as well, like the actual temperature and PH value. Just for those interested!
+Customers can do a check where they can see how much CO2 they saved by eating at Café de Ceuvel! By entering the amount of people they've eaten with, a personalized overview will appear! It's even possible to share it!
 
 ## Features
 
 - Click trough the story of the Biogasboot
 - Animations at each text to give more clarity
-- Interactive view of the Biogasboot with actual data
 - Live data from the Biogasboot
 - A special version for mobile and users without JavaScript
-- Dutch and English view
+- Personalized check
 
 ## Featured features
 This is an overview of all the interesting single features I've made for the Biogasboot dashboard, but also for the backend operator view that can be found [here](https://github.com/sjoerdbeentjes/biogasboot)
@@ -254,6 +253,12 @@ animation_2.to(elements.bucket, 2.25, {
     autoAlpha: 1
   });
 ```
+
+## Wishlist
+
+* [ ] Interactive view of the Biogasboot, with hover state
+* [ ] Improved UI for the Check
+* [ ] Actual calculations for the personalized check
 
 ## Dependecies
 
