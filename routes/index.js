@@ -129,7 +129,7 @@ module.exports = function(io) {
 
   function startCount(req, res, next) {
     setInterval(function() {
-      io.emit('update', 0.05);
+      io.emit('update', 0.1);
     }, 10000);
     next();
   }
