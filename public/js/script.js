@@ -261,7 +261,7 @@
       let elements = document.querySelectorAll('.amount');
       elements.forEach(function(element) {
         let total = Number(element.textContent);
-        element.textContent = total + amount;
+        element.textContent = (total + amount).toFixed(2);
       })
     });
 
