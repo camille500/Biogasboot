@@ -77,9 +77,18 @@ article.intro {
 }
 
 article.interactive {
-  padding-top: 2.5em;
   background-color: #A0BBA7;
   color: white;
+}
+
+.interactive svg {
+  padding-top: 12.5vh;
+}
+
+.interactive .buttons {
+  margin-top: 7.5vh;
+  display: block;
+  text-align: center;
 }
 
 section {
@@ -345,7 +354,8 @@ div h2 {
   color: white;
 }
 
-span.amount {
+span.amount,
+span.highlight {
   color: #8f9af9
 }
 
@@ -413,5 +423,8 @@ h2.center_heading {
     .social a:first-of-type {
       margin-right: 0;
       margin-bottom: 1em;
+    }
+    .interactive {
+      display: none;
     }
 }
