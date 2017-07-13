@@ -21,7 +21,7 @@ body {
 }
 
 body.overflow {
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 body.scrolling {

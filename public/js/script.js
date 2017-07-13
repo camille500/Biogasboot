@@ -256,6 +256,15 @@
       }
     }
 
+    const socket = io();
+    socket.on('update', function(amount) {
+      let elements = document.querySelectorAll('.amount');
+      elements.forEach(function(element) {
+        let total = Number(element.textContent);
+        element.textContent = total + amount;
+      })
+    });
+
     /* INITIALIZE THE APPLICATION
     ----------------------------------------- */
     app.init();

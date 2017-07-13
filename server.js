@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 ----------------------------------------- */
 const app = express();
 const http = require('http').Server(app);
+const io = require('socket.io')(http);
 require('dotenv').config();
 
 /* SESSIONS CONFIGURATION
@@ -43,7 +44,7 @@ app.use(compression());
 
 /* LOAD ALL ROUTERS
 ----------------------------------------- */
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index')(io);;
 
 /* MIDDLEWARE FOR THE VIEW ENGINE
 ----------------------------------------- */
