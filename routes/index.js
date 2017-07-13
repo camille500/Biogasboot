@@ -11,11 +11,11 @@ module.exports = function(io) {
   router.get('/', getGas, getFeed, startCount, function(req, res, next) {
     /* SET AL LOCAL VARIABLES
     ----------------------------------------- */
-    res.locals.gas = req.session.gas.toFixed(2);
-    res.locals.co2 = req.session.co2.toFixed(2);
-    res.locals.trees = req.session.trees.toFixed(2);
-    res.locals.carkm = req.session.carkm.toFixed(2);
-    res.locals.feed = req.session.feed.toFixed(2);
+    res.locals.gas = req.session.gas;
+    res.locals.co2 = req.session.co2;
+    res.locals.trees = req.session.trees;
+    res.locals.carkm = req.session.carkm;
+    res.locals.feed = req.session.feed;
     res.render('index');
   });
 
