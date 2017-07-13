@@ -3,7 +3,7 @@
 const config = {
   CORE_CACHE_NAME: 'bioboot-dashboard-core', // Name of cache with all core files
   PAGE_CACHE_NAME: 'bioboot-dashboard-pages', // Name of cache with all catched pages
-  CORE_FILES: ['/js/script.js', '/css/style.css'] // Core files to cache
+  CORE_FILES: ['/js/script.js', '/css/style.css', '/'] // Core files to cache
 }
 
 console.log('hola')
