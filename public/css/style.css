@@ -45,6 +45,21 @@ a {
   text-decoration: none;
 }
 
+input, a, .check a, .social a {
+  display: block;
+  transition: .5s;
+  outline: none;
+  border: .25em solid transparent;
+}
+
+a:focus,
+input:focus,
+.check a:focus,
+.social a:focus {
+  transition: .5s;
+  border-color: #EFD154
+}
+
 article {
   height: 100vh;
 }

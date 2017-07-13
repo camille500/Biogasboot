@@ -26,6 +26,12 @@ Customers can do a check where they can see how much CO2 they saved by eating at
 - A special version for mobile and users without JavaScript
 - Personalized check
 
+## Data model
+This is a overview of the data model for this application.
+
+![Data model](/screenshots/datamodel.jpg "Data model")
+
+
 ## Featured features
 This is an overview of all the interesting single features I've made for the Biogasboot dashboard, but also for the backend operator view that can be found [here](https://github.com/sjoerdbeentjes/biogasboot)
 
@@ -254,6 +260,48 @@ animation_2.to(elements.bucket, 2.25, {
   });
 ```
 
+## Testing
+For testing purposes I've been to Café de Ceuvel multiple times. I've conducted a survey to get better insights of the users. Using all this data I've did multiple itterations. I've tested the application on a iPad with some customers as well.
+
+I've been testing the application in the device lab too. Here are some images.
+
+![Device lab](/screenshots/dl1.jpg "Device lab")
+
+![Device lab](/screenshots/dl2.jpg "Device lab")
+
+![Device lab](/screenshots/dl3.jpg "Device lab")
+
+![Device lab](/screenshots/dl4.jpg "Device lab")
+
+## Screenshots
+Here some screenshots from the application
+
+**Menu**
+
+![Menu](/screenshots/1.png "Menu")
+This is the first screen the users see when navigating to the website.
+
+**Animation**
+
+![Animation](/screenshots/2.png "Animation")
+This is one of the animations of the app. Here below is another one.
+
+![Animation](/screenshots/3.png "Animation")
+
+**Check tool**
+This is the tool where users can check how much CO2 they've saved by eating at Café de Ceuvel.
+
+![Check](/screenshots/4.png "Check")
+
+And below is the screen you see after filling in the form.
+
+![Check result](/screenshots/5.png "Check result")
+
+**Focus state**
+
+![Check result](/screenshots/7.png "Check result")
+
+
 ## Wishlist
 
 * [ ] Interactive view of the Biogasboot, with hover state
@@ -270,3 +318,25 @@ animation_2.to(elements.bucket, 2.25, {
 * [x] [`Request`](https://www.npmjs.com/package/request) Client for HTTP requests
 * [x] [`Socket.io`](https://www.npmjs.com/package/socket.io) Enables websockets
 * [x] [`Compression`](https://www.npmjs.com/package/compression) Gzip compression
+
+## Setup the application
+
+### Clone the Repository
+```console
+git clone https://github.com/camille500/Biogasboot.git
+cd Biogasboot
+```
+
+### Install all dependencies
+```console
+npm install
+```
+
+### Setup .env variables
+Ask me for all the variables
+```
+SESSION_SECRET={session_secret}
+API_URL=https://biogas-api.herokuapp.com/api
+API_KEY={api_key}
+MONGODB_URL=mongodb://{username}:{password}@ds143532.mlab.com:43532/biogasboot
+```
